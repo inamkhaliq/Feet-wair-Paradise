@@ -1,8 +1,10 @@
 const express = require('express');
-var bodyParser = require('body-parser')
-var cors = require('cors')
 const app = express();
 const jsonwebtoke=require('jsonwebtoken')
+
+var bodyParser = require('body-parser')
+var cors = require('cors')
+
 const { default: mongoose } = require('mongoose');
 const { User } = require("./DB/Models/User")
 // mongoose.connect('mongodb+srv://AhmadSh:raheel123@cluster0.1o1wb3p.mongodb.net/inam').then((res)=>{
@@ -25,11 +27,13 @@ const connectDB = async () => {
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(cors())
-app.use(express.json());
 
 
-app.use(express.static('build'))
+app.use(cors()); //cors for frontend compatibility
+app.use(express.json()); // parse object data
+app.use(express.urlencoded({ extended: true }))  // parse form data
+
+app.use(express.static('./build'));
 
 
 
@@ -94,8 +98,8 @@ app.post('/check-token',async (req,res)=>{
 
 
 
-app.get("*", (req,res)=>{
-    res.sendFile(path.join(__filename, "./build/index.html"));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
 
 const poart = 7080;
