@@ -1,11 +1,9 @@
 const express = require('express');
 const app = express();
 const jsonwebtoke=require('jsonwebtoken')
-
-var bodyParser = require('body-parser')
-var cors = require('cors')
-
+const cors = require('cors')
 const path = require('path');
+const bodyParser = require('body-parser')
 
 
 const { default: mongoose } = require('mongoose');
@@ -16,7 +14,7 @@ const { User } = require("./DB/Models/User")
 //     console.log(err)
 // })
 const connectDB = async () => {
-    // mongoose.connect("mongodb+srv://AhmadSh:raheel123@cluster0.1o1wb3p.mongodb.net/inam", {
+    // mongoose.connect("mongodb+srv://AhmadSh:raheel123@cluster0.1o1wb3p.mongodb.net/inam") 
     mongoose.connect("mongodb+srv://ShoeStoreAdmin:ShoeStoreAdmin@cluster0.nsrnana.mongodb.net/SHOESTORE")
         .then(() => {
             console.log("Successfully connected to MongoDB")
@@ -35,6 +33,8 @@ app.use(express.urlencoded({ extended: true }))  // parse form data
 
 app.use(express.static('./build'));
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 
 
@@ -105,9 +105,7 @@ app.get('*', (req, res) => {
 
 
 const poart = 7080;
-
 connectDB().then(() => {
-
     app.listen(poart, () => {
         console.log(`Server is running at ${poart}`);
     });
