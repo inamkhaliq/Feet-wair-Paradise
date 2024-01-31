@@ -5,6 +5,9 @@ const jsonwebtoke=require('jsonwebtoken')
 var bodyParser = require('body-parser')
 var cors = require('cors')
 
+const path = require('path');
+
+
 const { default: mongoose } = require('mongoose');
 const { User } = require("./DB/Models/User")
 // mongoose.connect('mongodb+srv://AhmadSh:raheel123@cluster0.1o1wb3p.mongodb.net/inam').then((res)=>{
