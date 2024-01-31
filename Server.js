@@ -34,7 +34,7 @@ app.use(bodyParser.json())
 
 app.use(cors()); //cors for frontend compatibility
 app.use(express.json()); // parse object data
-app.use(express.urlencoded({ extended: true }))  // parse form data
+// app.use(express.urlencoded({ extended: true }))  // parse form data
 
 app.use(express.static('./build'));
 
