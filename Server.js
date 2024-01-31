@@ -1,4 +1,6 @@
 const express = require('express');
+var bodyParser = require('body-parser')
+var cors = require('cors')
 const app = express();
 const jsonwebtoke=require('jsonwebtoken')
 const { default: mongoose } = require('mongoose');
@@ -19,9 +21,21 @@ const connectDB = async () => {
         })
 
 }
+ 
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(cors())
 app.use(express.json());
-app.use(express.static('./build'))
+
+
+app.use(express.static('build'))
+
+
+
+
+
+
 
 
 
