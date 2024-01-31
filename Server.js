@@ -70,6 +70,7 @@ app.post('/check-token',async (req,res)=>{
                 message:true,
                 loggedUser,
             })
+
         }
         }catch(error){
         res.status(4).json({ error: 'Invalid token'})
@@ -79,9 +80,9 @@ app.post('/check-token',async (req,res)=>{
 
 
 
-// app.get("*", (req,res)=>{
-//     res.sendFile(path.join(__filename, "./build/index.html"));
-// })
+app.get("*", (req,res)=>{
+    res.sendFile(path.join(__filename, "./build/index.html"));
+})
 
 const poart = 7080;
 
