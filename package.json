@@ -1,17 +1,16 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "jk",
   "main": "Server.js",
   "scripts": {
-    "start": "node Server.js",
+    "start": "node  Server.js",
     "watch": "node --watch app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["HTML","CSS","Js"],
+  "author": "Inam Khalid",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
